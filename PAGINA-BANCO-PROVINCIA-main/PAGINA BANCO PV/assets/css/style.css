@@ -1,0 +1,849 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+  --color-1: #0f1016;
+  --text-color: #f0f0f0;
+  --accent-color: #006aff;
+}
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Encode Sans';
+  font-weight: 500;
+}
+nav {
+  padding: 40px 160px 0;
+  text-align: left;
+  height: 60px;
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: sticky;
+  top: 0; /* Este debe estar siempre */
+  z-index: 1000; /* Asegúrate de que tenga un z-index suficientemente alto */
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilos para el overlay */
+.overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Negro semitransparente */
+  z-index: 999; /* Debajo del menú desplegable */
+}
+
+/* Estilos para el menú desplegable */
+.dropdown-menu {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #f9f9f9;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  margin: 20px 0;
+  display: flex; /* Asegura que el ícono y el texto estén alineados horizontalmente */
+  align-items: center; /* Alinea verticalmente el ícono con el texto */
+}
+
+.dropdown-menu li img {
+  margin-right: 10px; /* Añade espacio entre el ícono y el texto */
+  width: 24px; /* Ajusta el tamaño del ícono si es necesario */
+  height: 24px; /* Ajusta el tamaño del ícono si es necesario */
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* Estilo para el botón de cerrar */
+.close-btn {
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+.links-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+.hamb-btn {
+  margin-left: 10px ;
+
+}
+
+.links-container a {
+  font-size: 14px;
+  text-align: center;
+  transition: color 0.1s ease-in-out;
+}
+
+.links-container a:hover {
+  color: #bdbdbd;
+}
+
+.nav-button {
+  font-size: 14px;
+  min-width: fit-content;
+  line-height: 20px;
+  background-color: transparent;
+  color: rgb(60, 60, 59);
+  width: 100%;
+  border-radius: 3px 8px;
+  border: 1px solid rgb(60, 60, 59);
+  margin-right: 1%;
+  opacity: 1;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 12px !important;
+}
+
+nav a {
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #3c3c3b;
+  font-size: 16px;
+}
+
+nav .home-link {
+  margin-right: auto;
+}
+
+nav svg {
+  fill: var(--text-color);
+}
+
+#sidebar-active {
+  display: none;
+}
+
+.open-sidebar-button,
+.close-sidebar-button {
+  display: none;
+}
+
+.nav-logo {
+  height: auto;
+  width: 200px;
+  padding-left: 10px;
+  padding-right: 210px;
+}
+
+/* Nueva clase para el efecto sticky */
+.sticky {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px 160px 0; /* Reduce el padding cuando se hace sticky */
+  top: 0; /* Importante para que el nav se mantenga arriba */
+}
+
+.cotizacion-container {
+  background-color: #383838;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 15px 20px; /* Aumentamos el padding para dar más espacio interno */
+  border-radius: 0 0 5px 5px;
+  margin: 0 auto;
+  width: 1200px;
+  max-width: 100%;
+  box-sizing: border-box;
+  
+}
+
+.cotizacion-content {
+  text-align: center;
+  display: flex;
+  flex-direction: row; /* Distribuye los elementos en fila */
+  justify-content: space-around; /* Espacia uniformemente los elementos */
+  align-items: center; /* Alinea verticalmente los elementos al centro */
+  width: 100%;
+}
+
+.cotizacion-content h3, .cotizacion-content p {
+  margin: 5px 0;
+}
+
+.cotizacion-content h3 {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 10px; /* Añadimos un margen horizontal entre los títulos */
+}
+
+.cotizacion-content p {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.slider-container {
+  background-color: #ebebeb;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.slider{
+background-color: #ebebeb;
+  width: 1200px;
+  max-width: 100vw;
+  height: 360px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  
+  border-top-left-radius: 10px;  /* Radio en la esquina superior izquierda */
+  border-top-right-radius: 10px; /* Radio en la esquina superior derecha */
+  border-bottom-left-radius: 0;  
+  border-bottom-right-radius: 0;
+}
+.slider .list{
+  position: absolute;
+  width: max-content;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  transition: 1s;
+}
+.slider .list img{
+  width: 1300px;
+  max-width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+.slider .buttons{
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.slider .buttons button{
+
+display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.473);
+  color: #fff;
+  border: none;
+  font-family: monospace;
+  font-weight: bold;
+}
+.slider .dots{
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.slider .dots li{
+  list-style: none;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+.slider .dots li.active{
+  width: 30px;
+}
+@media screen and (max-width: 768px){
+  .slider{
+      height: 400px;
+  }
+}
+
+
+@media(max-width: 450px){
+  .links-container{
+    flex-direction: column;
+    align-items: flex-start;
+
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 10;
+    width: 300px;
+    background-color: var(--color-1);
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+    transition: 0.75s ease-out;
+  }
+  nav a{
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+  }
+  .open-sidebar-button, .close-sidebar-button{
+    padding: 20px;
+    display: block;
+  }
+  #sidebar-active:checked ~ .links-container{
+    right: 0;
+  }
+  #sidebar-active:checked ~ #overlay{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+  }
+}
+
+
+
+.card-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 15px ;
+}
+
+.card {
+  width: 380px;
+  border-radius: 8px 30px 10px 32px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+  height: 150px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 0;
+  color: #666;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px #333;
+}
+
+/* Beneficios Section */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  background-image: linear-gradient(-45deg, rgb(39, 157, 46), rgb(37, 180, 189));
+  border-radius: 10px;
+  justify-content: center; /* Centra todo el contenido dentro del contenedor principal */
+}
+
+.right-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-large {
+  flex: 1 1 60%; /* Ocupa el 60% del contenedor */
+  max-width: 570px;
+  padding-bottom: 21px;
+  background-color: #fff;
+  border-radius: 8px 30px 10px 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch; /* Estira el contenido para que ocupe todo el contenedor */
+  align-items: stretch; /* Estira el contenido para que ocupe todo el contenedor */
+  transition: box-shadow 0.4s ease-in-out;
+}
+
+.card-large:hover {
+  box-shadow: 0 0 8px #0f1016;
+}
+
+
+.card-large .text-container  {
+  flex: 1; /* Asegura que el contenedor de texto ocupe todo el espacio disponible */
+  padding: 18px;
+  line-height: 25px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  width: 90%; /* La caja de texto ocupa todo el ancho */
+}
+
+.card-small {
+  width: 515px; /* Ancho fijo */
+  height: 234px; /* Alto fijo */
+  flex: 1 1 30%;
+  max-width: 515px;
+  max-height: 234px;
+  background-color: #fff;
+  border-radius: 8px 30px 10px 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: box-shadow 0.4s ease-in-out;
+  box-sizing: border-box;
+}
+
+.card-small:hover {
+  box-shadow: 0 0 8px #0f1016;
+}
+
+.link-card-small {
+  text-decoration: none;
+}
+
+.card-small img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  box-sizing: border-box;
+}
+
+.text-container {
+  padding: 18px;
+  line-height: 25px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  width: 50%; /* La caja de texto ocupa la mitad del ancho */
+}
+
+.text-container h3 {
+  font-weight: 600;
+  font-size: 22px; /* Puedes ajustar el tamaño de fuente si lo deseas */
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.text-container p {
+  font-size: 18px; /* Puedes ajustar el tamaño de fuente si lo deseas */
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-large, .card-small {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .card-small {
+    flex-direction: column; /* En pantallas pequeñas, la imagen y el texto se apilan verticalmente */
+  }
+
+  .card-small img, .text-container {
+    width: 100%; /* La imagen y el texto ocupan el 100% del ancho en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .card-large, .card-small {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .nav-logo {
+      padding-right: 0;
+  }
+
+  nav {
+      padding: 60px 20px 0;
+  }
+}
+
+
+
+.card-container-section2 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.card-section2 {
+  width: 380px;
+  border-radius: 8px 30px 10px 32px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: box-shadow 0.3s ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+
+.image-overlay {
+  position: relative;
+}
+
+.image-filter {
+  width: 100%;
+  height: 402px;
+  object-fit: cover;
+  filter: brightness(50%); /* Filtro oscuro solo en la imagen */
+}
+
+.image-text {
+  position: absolute;
+  z-index: 1;
+  top: 72%;
+  left: 20px;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 32px;
+  text-align: left;
+  margin: 0;
+}
+
+.card-content-section2 {
+  padding: 20px;
+  height: 35px;
+}
+
+.card-content-section2 p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #666;
+}
+
+.card-section2:hover {
+  box-shadow: 0 0 10px #333;
+}
+
+
+/* ================== ESTILOS PARA LA NUEVA SECCIÓN ================== */
+.app-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 580px; /* Altura fija */
+  background-color: #f5f5f5; /* Color de fondo */
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.app-content {
+  display: flex;
+  width: 1903px; /* Ancho fijo */
+  height: 100%; /* Ocupar toda la altura */
+  border-radius: 10px;
+  justify-content: space-between; /* Distribución equitativa */
+}
+
+.app-text-container {
+  width: 50%; /* Ocupa la mitad del espacio */
+  padding: 60px 0 60px 240px; /* Ajuste de padding para mover el texto hacia la derecha */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-text-container h3 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 27px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.app-text-container p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  text-align: left;
+  max-width: 40%;
+}
+
+.app-download-button {
+  background-color: #3c3c3b;
+  color: #fff;
+  border: none;
+  border-radius: 3px 8px;
+  padding: 8px 12px;
+  font-size: 15px;
+  cursor: pointer;
+  max-width: 30%;
+}
+
+.app-image-container {
+  width: 50%; /* Ocupa la otra mitad del espacio */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9f5f2; /* Color de fondo */
+}
+
+.app-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ajuste de imagen para cubrir toda la mitad */
+}
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+
+}
+
+.contact-item {
+  cursor: pointer;
+  text-align: center;
+  margin: 0 30px;
+}
+
+.contact-item .icon {
+  background-color: #4CAF50;
+  border-radius: 50%;
+  padding: 20px;
+  display: inline-block;
+}
+
+.contact-item svg {
+  width: 40px;
+  height: 40px;
+  fill: #fff; /* Esto cambiará el color del SVG */
+}
+
+.contact-item p {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 22px;
+  color: #333;
+}
+
+#scrollbutton-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#scrollToTopButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  bottom: 20px;
+  right: 20px;
+}
+
+#scrollToTopButton:hover {
+  opacity: 0.8;
+}
+
+
+#teayduamos-container {
+  position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#teayduamos-container img {
+  width: 180px;
+  height: 60px;
+}
+
+
+footer {
+  background-color: #333;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  width: 20%;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 22px;
+  line-height: 27px;
+  padding-bottom: 12px;
+  font-weight: 700;
+  margin: 0px;
+  white-space: pre-line;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #555;
+  padding: 10px 0;
+}
+
+.footer-section-img{
+  cursor: pointer;
+  margin: 20px 10px;
+  width: 180px;
+  height: 87px;
+}
+
+#arrepentimiento{
+  max-width: 182px;
+  height: auto;
+}
+#sello {
+  margin-top: 95px;
+}
+
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.social-media {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.social-media p {
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.social-media a {
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links .btn {
+  background-color: #444;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 5px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.footer-links .btn:hover {
+  background-color: #555;
+}
+
+.footer-legal {
+  font-size: 12px;
+}
+
+.footer-legal p {
+  margin: 0;
+  color: #fff;
+}
+
+
+
+
+
+
